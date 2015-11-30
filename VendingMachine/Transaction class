@@ -1,0 +1,32 @@
+public class Transactions
+    {
+        //DateTime date = new DateTime();
+        //can get rid of date time and use datetime from product class
+        string date;
+        string time;
+        string itemsold;
+        string amount;
+
+        public string Date
+        {
+            get { return date; }
+            set { date = value; }
+          
+        }
+        public string Time
+        {
+            get { return time; }
+            set { time = value; }
+        }
+        public string ItemsSold
+        {
+        get{ return itemsold;}
+        set { itemsold = value; }
+        }
+        public string Amount
+        {
+            get { return amount; }
+            set { amount = value; }
+        }
+
+    }
