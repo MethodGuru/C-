@@ -1,0 +1,38 @@
+public class Inventory
+    {
+       Product [] productColection =  new Product[10];
+        int TrackIndex = 0;
+       
+
+        public Inventory(string name, double price)
+        {
+            for (int c = 0; c < productColection.Length; c++)
+            {
+                
+                productColection[c] = new Product(DateTime.Now, name, price);
+            }
+        }
+
+
+        public void Push(Product newProduct)
+        {
+                 if (productColection != null && productColection.Length!=0){
+                     for (int i = 0; i < productColection.Length;i++) {
+                     if (productColection[i] == null){
+
+                     productColection[i]= newProduct;
+                     }
+                 }
+                     }
+             }
+
+             public void pop(){
+                  
+                    if(productColection != null && TrackIndex < productColection.Length){
+                        productColection[TrackIndex]=null;
+                         TrackIndex++;
+                         
+                     }
+                   //return TrackIndex - productColection.Length;
+                 }
+             }
