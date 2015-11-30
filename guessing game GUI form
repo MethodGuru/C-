@@ -1,0 +1,121 @@
+public partial class GuessingGame : Form
+    {
+        GuessGame game = new GuessGame();
+        public GuessingGame()
+        {
+            InitializeComponent();
+            
+            game.PlayStart();
+
+        }
+
+        private void btnPlay_Click(object sender, EventArgs e)
+        {
+                int result;
+                String text = txtGeuss.Text;
+               
+                if (Int32.TryParse(txtGeuss.Text, out result) == false)
+                {
+                    MessageBox.Show("Enter the proper number");
+
+                }
+                else
+                {
+                    string temp = game.CheckGuess(result);
+                    lblDisplay.Text = temp;
+                    lblwincount.Text = game.wins.ToString();
+                    lblGuessCount.Text = game.numOfguess.ToString();
+                    if (temp == "you have no guesses left")
+                    {
+                        txtGeuss.ReadOnly = true;
+                        btnPlay.Enabled = false;
+                        game.losses++;
+                        lblLosscount.Text = game.losses.ToString();
+                        lblGuessCount.Text = game.numOfguess.ToString();
+                        
+                        lblLosscount.Text = game.losses.ToString();
+                        
+                    }
+
+                }
+              
+        }
+
+        private void btnQuit_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblRules_Click(object sender, EventArgs e)
+        {
+            lblRules.Text = "You have 10 tries to make \n the correct guess.\n"+"After 10 guesses you loose";
+        }
+
+        private void btnNewgame_Click(object sender, EventArgs e)
+        {
+            lblwincount.Text ="0";
+            lblLosscount.Text = "0";
+            lblGuessCount.Text = "0";
+            txtGeuss.Clear();
+            txtGeuss.ReadOnly = false;
+            btnPlay.Enabled = true;
+            lblDisplay.Text = "";
+            GuessGame game = new GuessGame();
+            game.PlayStart();
+        }
+
+        private void lblWins_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void GuessingGame_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblLosscount_Click(object sender, EventArgs e)
+        {
+            lblLosscount.Text = "0";
+        }
+
+        private void lblwincount_Click(object sender, EventArgs e)
+        {
+            lblLosscount.Text = "0";
+        }
+
+        private void lblGuessCount_Click(object sender, EventArgs e)
+        {
+            lblGuessCount.Text = "0";
+        }
+
+        private void lblDisplay_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
