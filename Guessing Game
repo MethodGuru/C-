@@ -1,0 +1,99 @@
+class GuessGame
+    {
+        public int guess;
+        public int numOfguess;
+        public int hidden;
+        public int wins;
+        public int losses;
+        private string tooHigh ="Your number was too high";
+        private string tooLow = "your number was too low";
+        
+
+        //need getters ans setters 
+       //porperty methods
+        
+
+        public void PlayStart(){
+            String play = "Click PLay to Start the game, Guess between 1 and 100";
+            Random rnd = new Random();
+            hidden = rnd.Next(1, 101);
+            numOfguess = 10;
+            
+            //return hidden;
+        
+        }
+        
+        public Boolean guessLeft()
+        {
+
+            numOfguess--;
+            if (numOfguess < 1)
+            {
+               
+                return false;
+               
+            }
+            else{
+                         
+            return true;
+            }
+        }
+        public String CheckGuess(int userInput){
+            //checking if user matches hidden value
+            //checking if user wants to play again 
+            guess = userInput;
+           
+                if (guess == hidden)
+                {
+
+
+                    guessLeft();
+                    
+                     wins++;
+                   
+                    String won = "yo have won";
+                    
+                    return won;
+                    
+                    //
+                }
+                else if (guess < hidden)
+                {
+
+                    if (guessLeft())
+                    {
+                        return tooLow;
+                    }
+                    else
+                    {
+                        
+                        String error = "you have no guesses left";
+                        return error;
+                    }
+                    
+                                       
+                }
+
+                //String message = "You made the wrong guess, Guess again";  
+
+                else 
+                {
+                    if (guessLeft())
+                    {
+                        return tooHigh;
+                    }
+                    else
+                    {
+                       
+                        String error = "you have no guesses left";
+                        
+                        return error;
+                    }
+               
+                }
+                
+
+        }
+          
+            }
+            
